@@ -4,6 +4,7 @@ import "./../..//node_modules/video-react/dist/video-react.css";
 import styled from 'styled-components'
 import { useParams } from "react-router-dom";
 import { Container, Row, Col } from 'styled-bootstrap-grid'
+import { Imgbox, MovieCard } from './../components/Component'
 import { movies } from './../data'
 
 
@@ -22,7 +23,7 @@ const okur = data => {
 const Player2 = data => {
     const link = data.substring(0, 13);
     console.log(link);
-    if (link == 'http://ok.ru/'||'https://ok.ru/') {
+    if (link == 'http://ok.ru/' || 'https://ok.ru/') {
         return okur(data);
     } else {
         return notPlayer(data);
@@ -37,6 +38,16 @@ export default function Movies() {
 
     return (
         <Container>
+            <Row>
+                <Col sm={6} md={2}>
+                    <MovieCard>
+                        <Imgbox style={{ background: 'URL(' + data1.img + ')' }} />
+                    </MovieCard>
+                </Col>
+                <Col sm={6} md={9}>
+                    <h1>{data1.title}</h1>
+                </Col>
+            </Row>
             <Row>
                 <Col sm={12} lg={8}>
                     <VideoWrapper>
