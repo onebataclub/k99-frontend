@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { colors } from '../theam'
 // 
-import { Container, Row, Col, media } from 'styled-bootstrap-grid'
+import { Container, Row, Col } from 'styled-bootstrap-grid'
 // Route
-import { Link, Router } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import logo from './../images/logo.png'
 
@@ -38,14 +38,6 @@ export default function MainHeader() {
         </Header>
     )
 }
-const CustomDiv = styled.div`
-${media.tablet`
-    .menu{
-        display: none !important;
-    }
-  `}
-`;
-
 
 const Header = styled.header`
     background: ${colors.black};
