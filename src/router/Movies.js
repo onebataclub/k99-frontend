@@ -1,71 +1,73 @@
-import React, { Component } from 'react'
+import React, { useContext, useState } from 'react'
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 import { Imgbox, MovieCard, VideoWrapper, List, Thum, Listwrap, Btnwrap } from './../components/Component'
-import { movies } from './../data'
+import { MoviesContext } from './../MoviesContext'
+import { movies } from '../data'
 
+const Movies = ({ match }) => {
+    let params = match.params.id;
+    const [movie, setMovie] = useContext(MoviesContext);
+    const thisMovie = movie[params - 1];
+    const [ActiveMovie, setActiveMovie] = useState(0);
 
-export default class Movies extends Component {
-    state = {
-        data: [],
-        part: '',
+    const changMovies = e => {
+        console.log(e.target.dataset.id);
+        setActiveMovie(e.target.dataset.id)
     }
-    componentDidMount() {
-        const id = this.props.match.params.id;
-        const data1 = movies[id - 1];
-        this.setState({ data: data1, part: data1.part[0] });
+    const back = e => {
+        setActiveMovie(e.target.dataset.id)
     }
-
-    render() {
-        console.log(this.state);
-
-        const { data, part } = this.state;
-        return (
-            <Container>
-                <Row>
-                    <Col xs={6} sm={4} md={3} lg={2}>
-                        <MovieCard>
-                            <Imgbox style={{ background: 'URL(' + data.img + ')' }} />
-                        </MovieCard>
-                    </Col>
-                    <Col xs={6} sm={8} md={9} lg={10}>
-                        <h1>{data.title}</h1>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col sm={12} lg={8}>
-                        <VideoWrapper>
-                            {Player2(part)}
-                        </VideoWrapper>
-                        <Btnwrap>
-                            <div onClick={this.back}>
-                                <ion-icon name="play-back-outline"></ion-icon>
-                            </div>
-                            <div onClick={this.next}>
-                                <ion-icon name="play-forward-outline"></ion-icon>
-                            </div>
-
-                        </Btnwrap>
-                    </Col>
-                    <Col sm={12} lg={3}>
-                        <Listwrap>
-                            {/* {
-                                data.part.map((index, key) => {
-                                    return <List key={key} data-videoid={index}>
-                                        <Thum style={{ background: 'URL(' + data.img + ')' }} />
-                                        <p>{data.title + ' ភាគទី​​ ' + key + '+' + index}</p>
-                                    </List>
-                                })
-                            } */}
-                        </Listwrap>
-                    </Col>
-                </Row>
-
-            </Container>
-        )
+    const next = e => {
+        console.log(e.target.dataset.id);
+        setActiveMovie(e.target.dataset.id)
     }
+    return (
+        <Container>
+            <Row>
+                <Col xs={6} sm={4} md={3} lg={2}>
+                    <MovieCard>
+                        <Imgbox style={{ background: 'URL(' + thisMovie.img + ')' }} />
+                    </MovieCard>
+                </Col>
+                <Col xs={6} sm={8} md={9} lg={10}>
+                    <h1>{thisMovie.title}</h1>
+                </Col>
+            </Row>
+            <Row>
+                <Col sm={12} lg={8}>
+                    <VideoWrapper>
+                        <Player data={thisMovie.part[ActiveMovie]} />
+                    </VideoWrapper>
+                    <Btnwrap>
+                        <div >
+                            <ion-icon name="play-back-outline" onClick={back}></ion-icon>
+                        </div>
+                        <div >
+                            <ion-icon name="play-forward-outline" onClick={next} ></ion-icon>
+                        </div>
+                    </Btnwrap>
+                </Col>
+                <Col sm={12} lg={3}>
+                    <Listwrap>
+                        {
+                            thisMovie.part.map((index, key) => {
+                                return <List key={key} value={key} onClick={changMovies}>
+                                    <Thum style={{ background: 'URL(' + thisMovie.img + ')' }} />
+                                    <p>{thisMovie.title + ' ភាគទី​​ ' + parseInt(key+1)}</p>
+                                </List>
+                            })
+                        }
+                    </Listwrap>
+                </Col>
+            </Row>
+
+        </Container>
+    )
+
 }
 
-const Player2 = data => {
+const Player = ({ data }) => {
+
     const link = data.substring(0, 3);
     const url = data.substring(3, data.length);
     // okor
@@ -85,3 +87,5 @@ const Player2 = data => {
         return facebook(url);
     }
 }
+
+export default Movies;

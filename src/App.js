@@ -9,22 +9,25 @@ import Category from './router/Category'
 import Movies from './router/Movies'
 
 // UI components
+import { MoviesProvider } from './MoviesContext'
 
 import Footer from './Footer';
 
 
 export default function App() {
   return (
-    <Router>
-      <div className="app" style={{ background: colors.black }}>
-        <MainHeader />
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/category" component={Category} />
-          <Route path="/movies/:id" component={Movies} />
-        </Switch>
-        <Footer />
-      </div>
-    </Router>
+    <MoviesProvider>
+      <Router>
+        <div className="app" style={{ background: colors.black }}>
+          <MainHeader />
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/category" component={Category} />
+            <Route path="/movies/:id" component={Movies} />
+          </Switch>
+          <Footer />
+        </div>
+      </Router>
+    </MoviesProvider>
   )
 }

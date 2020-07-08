@@ -7,7 +7,6 @@ import { Container, Row, Col } from 'styled-bootstrap-grid'
 import { Link } from 'react-router-dom'
 
 import logo from './../images/logo.png'
-
 export default function MainHeader() {
     return (
         <Header>
@@ -29,7 +28,9 @@ export default function MainHeader() {
                                 <Li>Category</Li>
                             </Link>
                             <Link to="/movies">
-                                <Li>Movies</Li>
+                                <Li>
+                                    <Clock />
+                                </Li>
                             </Link>
                         </Ul>
                     </Col>
@@ -37,6 +38,37 @@ export default function MainHeader() {
             </Container>
         </Header>
     )
+}
+class Clock extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { date: new Date() };
+    }
+
+    componentDidMount() {
+        this.timerID = setInterval(
+            () => this.tick(),
+            1000
+        );
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timerID);
+    }
+
+    tick() {
+        this.setState({
+            date: new Date()
+        });
+    }
+
+    render() {
+        return (
+            <>
+                {this.state.date.toLocaleTimeString()}
+            </>
+        );
+    }
 }
 
 const Header = styled.header`
