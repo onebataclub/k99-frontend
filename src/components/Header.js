@@ -27,11 +27,11 @@ export default function MainHeader() {
                             <Link to="/category">
                                 <Li>Category</Li>
                             </Link>
-                            <Link to="/movies">
-                                <Li>
-                                    <Clock />
-                                </Li>
-                            </Link>
+
+                            <Li>
+                                <Clock />
+                            </Li>
+
                         </Ul>
                     </Col>
                 </Row>

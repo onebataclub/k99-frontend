@@ -5,7 +5,7 @@ const movies = [
         rating: 2,
         part: [
             'fb?10153231379946729',
-            'fb?10153231379946729',
+            'fb?184316899451776',
         ],
         img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkZ6M-o1WQ7zLDtOEhPjvnbjqI2fpwYXBSxe5Z9sFjeavw-qMp'
     },

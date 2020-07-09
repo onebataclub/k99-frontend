@@ -12,6 +12,7 @@ background-size:cover !important;
 position:relative;
 `;
 export const MovieCard = styled.div`
+    margin: 5px;
     .movies-card{
         background: ${colors.white};
         border-radius:10px;
@@ -33,6 +34,7 @@ export const VideoWrapper = styled.div`
     position: relative;
     padding-bottom: 56.25%;
     iframe{
+        padding: 0;
         border: none;
         position: absolute;
         top: 0;

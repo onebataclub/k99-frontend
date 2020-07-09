@@ -1,71 +1,78 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, Component } from 'react'
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 import { Imgbox, MovieCard, VideoWrapper, List, Thum, Listwrap, Btnwrap } from './../components/Component'
 import { MoviesContext } from './../MoviesContext'
 import { movies } from '../data'
+import { colors } from './../theam'
 
-const Movies = ({ match }) => {
-    let params = match.params.id;
-    const [movie, setMovie] = useContext(MoviesContext);
-    const thisMovie = movie[params - 1];
-    const [ActiveMovie, setActiveMovie] = useState(0);
-
-    const changMovies = e => {
-        console.log(e.target.dataset.id);
-        setActiveMovie(e.target.dataset.id)
+class Movies extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            moviesData: movies[this.props.match.params.id - 1],
+            active: 0,
+        }
+        console.log(this.state.moviesData.part[this.state.active])
     }
-    const back = e => {
-        setActiveMovie(e.target.dataset.id)
+    changMovie = (e) => {
+        this.setState({
+            active: e.target.dataset.id,
+        })
+        console.log(e.target)
     }
-    const next = e => {
-        console.log(e.target.dataset.id);
-        setActiveMovie(e.target.dataset.id)
+
+    render() {
+        return (
+            <Container>
+                <Row>
+                    <Col xs={6} sm={4} md={3} lg={2}>
+                        <MovieCard>
+                            <Imgbox style={{ background: 'URL(' + this.state.moviesData.img + ')' }} />
+                        </MovieCard>
+                    </Col>
+                    <Col xs={6} sm={8} md={9} lg={10}>
+                        <h1 style={{ color: colors.white }}>{this.state.moviesData.title}</h1>
+                    </Col>
+                </Row>
+                <Row><h2 style={{ color: colors.white }}>{this.state.moviesData.title} [{Number(this.state.active) + 1}]</h2></Row>
+                <Row>
+                    <Col sm={12} lg={8}>
+                        <VideoWrapper>
+                            <Player data={this.state.moviesData.part[this.state.active]} />
+                        </VideoWrapper>
+                        <Btnwrap>
+                            <div >
+                                <ion-icon name="play-back-outline"></ion-icon>
+                            </div>
+                            <div >
+                                <ion-icon name="play-forward-outline"></ion-icon>
+                            </div>
+                        </Btnwrap>
+                    </Col>
+                    <Col sm={12} lg={3}>
+                        <Listwrap>
+                            {
+                                this.state.moviesData.part.map((index, key) => {
+                                    return <List key={key} data-id={key} onClick={this.changMovie} >
+                                        <ListMovie img={this.state.moviesData.img} title={this.state.moviesData.title} id={key} />
+                                    </List>
+                                })
+                            }
+                        </Listwrap>
+                    </Col>
+                </Row>
+            </Container >
+        )
     }
-    return (
-        <Container>
-            <Row>
-                <Col xs={6} sm={4} md={3} lg={2}>
-                    <MovieCard>
-                        <Imgbox style={{ background: 'URL(' + thisMovie.img + ')' }} />
-                    </MovieCard>
-                </Col>
-                <Col xs={6} sm={8} md={9} lg={10}>
-                    <h1>{thisMovie.title}</h1>
-                </Col>
-            </Row>
-            <Row>
-                <Col sm={12} lg={8}>
-                    <VideoWrapper>
-                        <Player data={thisMovie.part[ActiveMovie]} />
-                    </VideoWrapper>
-                    <Btnwrap>
-                        <div >
-                            <ion-icon name="play-back-outline" onClick={back}></ion-icon>
-                        </div>
-                        <div >
-                            <ion-icon name="play-forward-outline" onClick={next} ></ion-icon>
-                        </div>
-                    </Btnwrap>
-                </Col>
-                <Col sm={12} lg={3}>
-                    <Listwrap>
-                        {
-                            thisMovie.part.map((index, key) => {
-                                return <List key={key} value={key} onClick={changMovies}>
-                                    <Thum style={{ background: 'URL(' + thisMovie.img + ')' }} />
-                                    <p>{thisMovie.title + ' ភាគទី​​ ' + parseInt(key+1)}</p>
-                                </List>
-                            })
-                        }
-                    </Listwrap>
-                </Col>
-            </Row>
-
-        </Container>
-    )
-
 }
-
+const ListMovie = ({ img, title, id }) => {
+    return (
+        <>
+            <Thum data-id={id} style={{ background: 'URL(' + img + ')' }} />
+            <p data-id={id} >{title + ' ភាគទី​​ ' + parseInt(id + 1)}</p>
+        </>
+    )
+}
 const Player = ({ data }) => {
 
     const link = data.substring(0, 3);
