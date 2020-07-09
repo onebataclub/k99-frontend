@@ -12,7 +12,6 @@ background-size:cover !important;
 position:relative;
 `;
 export const MovieCard = styled.div`
-    margin: 5px;
     .movies-card{
         background: ${colors.white};
         border-radius:10px;

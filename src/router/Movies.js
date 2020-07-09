@@ -79,12 +79,12 @@ const Player = ({ data }) => {
     const url = data.substring(3, data.length);
     // okor
     const okur = data => {
-        return <iframe src={`http://ok.ru/videoembed/${data}`} allow="autoplay"></iframe>
+        return <iframe src={`http://ok.ru/videoembed/${data}`} allow="autoplay" allow="fullscreen"></iframe>
     };
     // facebook
     const facebook = data => {
         return (
-            <iframe src={`https://www.facebook.com/video/embed?video_id=${data}`} allow="autoplay"></iframe>
+            <iframe src={`https://www.facebook.com/video/embed?video_id=${data}`} allow="autoplay" allow="fullscreen"></iframe>
         )
     }
     // condiction

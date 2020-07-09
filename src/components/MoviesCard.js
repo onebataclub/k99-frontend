@@ -10,8 +10,7 @@ export default class MoviesCardCom extends Component {
         const { data } = this.props;
         return (
             <MovieCard>
-                <motion.div className="movies-card" whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0, opacity: 0 }}>
+                <motion.div className="movies-card" whileHover={{ scale: 1.05 }}>
                     <Imgbox style={{ background: 'URL(' + data.img + ')' }} />
                     <div className='title'>
                         <Icon>

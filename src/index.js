@@ -12,9 +12,6 @@ const gridTheme = {
   col: {
     padding: 10, // default 15
   },
-  // container: {
-  //   padding: 0, // default 15
-  // },
 };
 const styledTheme = {
   mainColor: 'purple',

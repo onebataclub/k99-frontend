@@ -76,7 +76,7 @@ const Header = styled.header`
     border-bottom : 1px solid ${colors.gray};
 `;
 const Logo = styled.div`
-padding: 10px 0;
+padding:0;
 height:50px;
     img{
         height:100%;
