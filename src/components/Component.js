@@ -12,22 +12,28 @@ background-size:cover !important;
 position:relative;
 `;
 export const MovieCard = styled.div`
-    .movies-card{
-        background: ${colors.white};
-        border-radius:10px;
-        margin: 10px 0;
-        overflow:hidden;
-        box-shadow: ${boxshadow};
-        .title{
-            height:30px;
-            padding:10px;
-            h1{
-                color: ${colors.white};
-                margin:5px 15px;
-                font-size:16px;
-            }
-        }
-    }
+    background: ${colors.white};
+    border-radius:10px;
+    margin: 10px 0;
+    overflow:hidden;
+    box-shadow: ${boxshadow};
+    
+`;
+export const MovieCardHome = styled.div`
+    background: ${colors.white};
+    border-radius:10px;
+    margin: 10px 0;
+    overflow:hidden;
+    box-shadow: ${boxshadow};
+     
+`;
+export const H1 = styled.div`
+height: 50px;
+padding: 10px;
+overflow:hidden;
+font-size:19px;
+background:${colors.primary};
+color: ${colors.white};
 `;
 export const VideoWrapper = styled.div`
     position: relative;
@@ -103,3 +109,23 @@ export const Icon = styled.div`
         background:${colors.primary};
     }
 `;
+export const Label = styled.div`
+display: flex;
+.lable{
+    display: block;
+    background :${colors.primary};
+    color: ${colors.white};
+    font-size:25px;
+    padding: 10px;
+    border-radius:10px;
+    min-width:200px;
+}
+    span{
+        display: block;
+        height: 5px;
+        width:100%;
+        background:${colors.primary};
+        margin: 25px;
+    }
+`;
+

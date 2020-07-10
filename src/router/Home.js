@@ -4,14 +4,23 @@ import { Link } from "react-router-dom";
 import MoviesCardCom from './../components/MoviesCard'
 import Slide from './../components/Slide'
 import { MoviesContext } from './../MoviesContext'
+import { Label } from './../components/Component'
 
 const Home = () => {
-    
+
     const [movie, setMovie] = useContext(MoviesContext);
     return (
         <Container>
             <Row>
                 <Slide />
+            </Row>
+            <Row>
+                <Col>
+                    <Label>
+                       <div className="lable">រឿងពេញនិយម</div>
+                       <span></span>
+                    </Label>
+                </Col>
             </Row>
             <Row>
                 {movie.map((index, key) => {

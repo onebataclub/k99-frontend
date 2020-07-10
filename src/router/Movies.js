@@ -1,7 +1,6 @@
-import React, { useContext, useState, Component } from 'react'
+import React, { Component } from 'react'
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 import { Imgbox, MovieCard, VideoWrapper, List, Thum, Listwrap, Btnwrap } from './../components/Component'
-import { MoviesContext } from './../MoviesContext'
 import { movies } from '../data'
 import { colors } from './../theam'
 
@@ -34,7 +33,11 @@ class Movies extends Component {
                         <h1 style={{ color: colors.white }}>{this.state.moviesData.title}</h1>
                     </Col>
                 </Row>
-                <Row><h2 style={{ color: colors.white }}>{this.state.moviesData.title} [{Number(this.state.active) + 1}]</h2></Row>
+                <Row>
+                    <Col>
+                        <h2 style={{ color: colors.white }}>{this.state.moviesData.title} [{Number(this.state.active) + 1}]</h2>
+                    </Col>
+                </Row>
                 <Row>
                     <Col sm={12} lg={8}>
                         <VideoWrapper>
@@ -49,7 +52,7 @@ class Movies extends Component {
                             </div>
                         </Btnwrap>
                     </Col>
-                    <Col sm={12} lg={3}>
+                    <Col sm={12} lg={4}>
                         <Listwrap>
                             {
                                 this.state.moviesData.part.map((index, key) => {
