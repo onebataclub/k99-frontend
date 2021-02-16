@@ -1,36 +1,24 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 import { Link } from "react-router-dom";
-import MoviesCardCom from './../components/MoviesCard'
 import Slide from './../components/Slide'
-import { MoviesContext } from './../MoviesContext'
-import { Label } from './../components/Component'
+import { game } from '../data';
+import GameCard from './../components/GameCard'
 
 const Home = () => {
-
-    const [movie, setMovie] = useContext(MoviesContext);
     return (
         <Container>
             <Row>
                 <Slide />
             </Row>
             <Row>
-                <Col>
-                    <Label>
-                       <div className="lable">រឿងពេញនិយម</div>
-                       <span></span>
-                    </Label>
-                </Col>
-            </Row>
-            <Row>
-                {movie.map((index, key) => {
+                {game.map((index, key) => {
                     return (
                         <Col key={key} xs={6} sm={4} md={3} lg={2}>
-                            <Link key={index.id} to={`movies/${index.id}`}>
-                                <MoviesCardCom data={index} />
+                            <Link key={index.id} to={index.slug}>
+                                <GameCard data={index}/>
                             </Link>
                         </Col>
-
                     )
                 })}
             </Row>

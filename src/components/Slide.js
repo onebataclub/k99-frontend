@@ -1,11 +1,18 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from "framer-motion";
 import { wrap } from "@popmotion/popcorn";
-import styled from 'styled-components'
+import styled from 'styled-components';
+import { AiOutlineDoubleRight } from 'react-icons/ai';
+
+import { device, size } from './style/breakpoints';
+
+import slide1 from '././../images/slide/slide1.jpg'
+import slide3 from '././../images/slide/slide3.jpg'
+import slide5 from '././../images/slide/slide5.jpg'
 const images = [
-    "https://moviebabble.com/wp-content/uploads/2019/04/Shazam.jpg",
-    "https://2v7smn27y3922e05obea523d-wpengine.netdna-ssl.com/wp-content/uploads/2018/10/MCoC_SocialPost_Venom_and_Carnage.png",
-    "https://moviebabble.com/wp-content/uploads/2019/03/Triple-Threat.jpg"
+    slide1,
+    slide3,
+    slide5
 ];
 const variants = {
     enter: (direction) => {
@@ -65,10 +72,10 @@ export default function Slide() {
                     />
                 </AnimatePresence>
                 <div className="next" onClick={() => paginate(1)}>
-                    {"‣"}
+                    <AiOutlineDoubleRight/>
                 </div>
                 <div className="prev" onClick={() => paginate(-1)}>
-                    {"‣"}
+                    <AiOutlineDoubleRight/>
                 </div>
             </Wrapslide>
         </>
@@ -82,6 +89,9 @@ const swipePower = (offset, velocity) => {
 const Wrapslide = styled.div`
     width:100%;
     height: 300px;
+    @media screen and (max-width: ${size.sm}){
+        height: 200px;
+  }
     position: relative;
     display: flex;
     justify-content: center;

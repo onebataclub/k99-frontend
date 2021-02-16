@@ -7,28 +7,27 @@ import { colors } from './theam'
 // Router
 import Home from './router/Home'
 import Category from './router/Category'
-import Movies from './router/Movies'
 
+import Gamedtail from './router/GameDtail'
 // UI components
-import { MoviesProvider } from './MoviesContext'
 
 import Footer from './Footer';
 
 
 export default function App() {
   return (
-    <MoviesProvider>
-      <Router>
-        <div className="app" style={{ background: colors.black }}>
-          <MainHeader />
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/category" component={Category} />
-            <Route path="/movies/:id" component={Movies} />
-          </Switch>
-          <Footer />
-        </div>
-      </Router>
-    </MoviesProvider>
+    <Router>
+      <div className="app" style={{ background: colors.black }}>
+        <MainHeader />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/login" exact component={Home} />
+          <Route path="/signup" exact component={Home} />
+          <Route path="/category" component={Category} />
+          <Route path=":slug" component={Gamedtail} /> 
+        </Switch>
+        <Footer />
+      </div>
+    </Router>
   )
 }

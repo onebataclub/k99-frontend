@@ -1,72 +1,76 @@
-const movies = [
+import chicken from './images/game/chicken.png'
+import keno from './images/game/keno.png'
+import live_casino from './images/game/live_casino.png'
+import poker from './images/game/poker.png'
+import slot from './images/game/slot.png'
+import sport from './images/game/sport.png'
+
+
+const menu = [
     {
         id: 1,
-        title: 'ne sat kor per',
-        rating: 2,
-        part: [
-            'fb?10153231379946729',
-            'fb?184316899451776',
-        ],
-        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkZ6M-o1WQ7zLDtOEhPjvnbjqI2fpwYXBSxe5Z9sFjeavw-qMp'
+        slug: '',
+        name: 'ទំព័រដើម',
     },
     {
         id: 2,
-        title: 'ទិនហ្វី',
-        rating: 3,
-        part: [
-            'ok?1524288981607',
-            'ok?1524288981607',
-            'ok?1524288981607',
-            'ok?1524288981607',
-            'ok?1524288981607',
-            'ok?1524288981607',
-            'ok?1524288981607',
-            'ok?1524288981607',
-            'ok?1524288981607',
-            'ok?1524288981607',
-            'ok?1524288981607',
-        ],
-        img: 'https://upload.wikimedia.org/wikipedia/en/0/00/KungFuHustleHKposter.jpg'
+        slug: 'sport',
+        name: 'កីឡា',
     },
     {
         id: 3,
-        title: 'ជើងកន្តៃហោះ',
-        rating: 5,
-        part: [
-            'fb?10153231379946729',
-            'fb?10153231379946729',
-        ],
-        img: 'https://www.movienewsletters.net/photos/262897R1.jpg'
+        slug: 'casino',
+        name: 'កាស៊ីណូ',
     },
     {
         id: 4,
-        title: 'បេះដូងអ្នកក្លាហាន',
-        rating: 3,
-        part: [
-            'fb?10153231379946729',
-            'fb?10153231379946729',
-        ],
-        img: 'https://contentserver.com.au/assets/557638_p11098044_p_v8_af.jpg'
+        slug: 'slot',
+        name: 'ស្លត',
     },
     {
         id: 5,
-        title: 'សេដ្ឋីក្មេង',
-        rating: 1,
-        part: [
-            'fb?10153231379946729',
-            'fb?10153231379946729',
-        ],
-        img: 'https://upload.wikimedia.org/wikipedia/en/0/00/KungFuHustleHKposter.jpg'
+        slug: 'loto',
+        name: 'ឡូតូ',
+    },
+];
+
+
+const game = [
+    {
+        id: 1,
+        slug:'chicken',
+        name: 'ប្រជល់មាន់',
+        img: { chicken }.chicken,
+    },
+    {
+        id: 2,
+        slug: 'keno',
+        name: 'គីណូ',
+        img: { keno }.keno,
+    },
+    {
+        id: 3,
+        slug: 'live_casino',
+        name: 'កាស៊ីណូផ្សាយផ្ទាល់',
+        img: { live_casino }.live_casino,
+    },
+    {
+        id: 4,
+        slug: 'slot',
+        name: 'ស្លត',
+        img: { slot }.slot,
+    },
+    {
+        id: 5,
+        slug: 'sport',
+        name: 'កីឡា',
+        img: { sport }.sport,
     },
     {
         id: 6,
-        title: 'សេ្នហ៍ពីរ',
-        rating: 1,
-        part: [
-            'fb?10153231379946729',
-            'fb?10153231379946729',
-        ],
-        img: 'https://upload.wikimedia.org/wikipedia/en/0/00/KungFuHustleHKposter.jpg'
-    },
+        slug: 'chicken',
+        name: 'ជូកឺ',
+        img: { chicken }.chicken,
+    }
 ];
-export { movies };
+export { game, menu };
