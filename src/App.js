@@ -12,12 +12,12 @@ import Gamedtail from './router/GameDtail'
 // UI components
 
 import Footer from './Footer';
-
+import Contact from './components/Contact'
 
 export default function App() {
   return (
     <Router>
-      <div className="app" style={{ background: colors.black }}>
+      <div className="app" style={{ background: colors.black, position:'relative' }}>
         <MainHeader />
         <Switch>
           <Route path="/" exact component={Home} />
@@ -27,6 +27,7 @@ export default function App() {
           <Route path=":slug" component={Gamedtail} /> 
         </Switch>
         <Footer />
+        <Contact/>
       </div>
     </Router>
   )
