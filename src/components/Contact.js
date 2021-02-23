@@ -11,7 +11,6 @@ import { SiLine } from 'react-icons/si';
 export default function Contact() {
     return (
         <WrappContact>
-
             <Label>
                 <MdContactPhone style={{ 
                     transform: 'rotate(-90deg)', 
@@ -75,8 +74,8 @@ const ContactBody = styled.div`
 `;
 const WrappContact = styled.div`
    box-shadow: 0px 0px 7px 0px ${colors.primary};
-   position:absolute;
-   top:50%;
+   position:fixed;
+   top:50vh;
    right:0;
    transform:translate(80%,-50%);
    background:${colors.gradient};

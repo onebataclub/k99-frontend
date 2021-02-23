@@ -17,7 +17,7 @@ import Contact from './components/Contact'
 export default function App() {
   return (
     <Router>
-      <div className="app" style={{ background: colors.black, position:'relative' }}>
+      <div className="app" style={{ background: colors.black, position:'relative', overflow:'hidden' }}>
         <MainHeader />
         <Switch>
           <Route path="/" exact component={Home} />
@@ -26,7 +26,7 @@ export default function App() {
           <Route path="/category" component={Category} />
           <Route path=":slug" component={Gamedtail} /> 
         </Switch>
-        <Footer />
+        <Footer /> 
         <Contact/>
       </div>
     </Router>
