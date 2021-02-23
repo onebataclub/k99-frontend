@@ -6,6 +6,45 @@ import slot from './images/game/slot.png'
 import sport from './images/game/sport.png'
 
 
+import aba from './images/bank/aba.jpg'
+import ac from './images/bank/ac.jpg'
+import pipay from './images/bank/pipay.png'
+import truemoney from './images/bank/truemoney.png'
+import wing from './images/bank/wing.png'
+
+const bank = [
+    {
+        id:1,
+        name:'aba',
+        img: { aba }.aba,
+
+    },
+    {
+        id:1,
+        name:'ac',
+        img: { ac }.ac,
+
+    },
+    {
+        id:1,
+        name:'pipay',
+        img: { pipay }.pipay,
+
+    },
+    {
+        id:1,
+        name:'truemoney',
+        img: { truemoney }.truemoney,
+
+    },
+    {
+        id:1,
+        name:'wing',
+        img: { wing }.wing,
+
+    }
+]
+
 const menu = [
     {
         id: 1,
@@ -73,4 +112,4 @@ const game = [
         img: { chicken }.chicken,
     }
 ];
-export { game, menu };
+export { game, menu, bank };

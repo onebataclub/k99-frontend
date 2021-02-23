@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import { GridThemeProvider } from 'styled-bootstrap-grid';
 import { ThemeProvider } from 'styled-components';
-
+import "./assets/css/owl.carousel.css";
 const gridTheme = {
   // row: {
   //   padding: 10, // default 15

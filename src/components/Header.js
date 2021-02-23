@@ -82,10 +82,10 @@ const Menu = ({ open }) => {
                     })
                 }
                 <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
-                    <Button>ចូល</Button>
+                    <Button to='/login'>ចូល</Button>
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
-                    <Button>ចុះឈ្មេាះ</Button>
+                    <Button to='/signup'>ចុះឈ្មេាះ</Button>
                 </motion.div>
             </Ul>
     )
