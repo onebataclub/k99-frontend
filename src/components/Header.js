@@ -2,23 +2,40 @@ import React from 'react'
 import styled from 'styled-components'
 import { colors } from '../theam'
 import { motion } from "framer-motion";
-
 import { Container, Row, Col } from 'styled-bootstrap-grid'
-// Route
 import { Link } from 'react-router-dom'
-import { menu } from './../data'
-import logo from './../images/logo.png'
 
-import { AiOutlineMenu } from 'react-icons/ai'
+
+import logo from './../images/logo.png'
+import en from './../images/en.svg'
+import km from './../images/km.svg'
+
 import { device, size } from './style/breakpoints';
 
-export default function MainHeader() {
+import { setLanguage } from 'react-switch-lang';
+import { FiPhoneCall } from 'react-icons/fi'
+export default function MainHeader({ t }) {
 
     const [open, setOpen] = React.useState(false);
     const node = React.useRef();
+
+    const handleSetLanguage = (key) => () => {
+        setLanguage(key);
+    };
     return (
         <Header>
             <Container>
+                <Row style={{ justifyContent: 'space-between' }}>
+                    <Phone><FiPhoneCall size={25} /> <p>{t('menu.phone')}</p></Phone>
+                    <div style={{ display: 'flex' }}>
+                        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
+                            <Lang onClick={handleSetLanguage('km')}><img src={km} /></Lang>
+                        </motion.div>
+                        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
+                            <Lang onClick={handleSetLanguage('en')}><img src={en} /></Lang>
+                        </motion.div>
+                    </div>
+                </Row>
                 <Row>
                     <Col xs={3} sm={3} md={2} lg={2}>
                         <Logo to='/' >
@@ -27,16 +44,35 @@ export default function MainHeader() {
 
                     </Col>
                     <Col ref={node} xs={9} sm={9} md={10} lg={10}>
-
                         <Burger open={open} setOpen={setOpen} />
-                        <Menu open={open} setOpen={setOpen} />
-
+                        <Menu t={t} open={open} setOpen={setOpen} />
                     </Col>
                 </Row>
             </Container>
         </Header>
     )
 }
+const Phone = styled.div`
+    margin-top:15px;
+    display:flex;
+    color: ${colors.white};
+    p{
+        display:inline-block;
+        margin:0;
+        padding:0 10px;
+    }
+`;
+const Lang = styled.div`
+    border:5px;
+    color: ${colors.white};
+    cursor: pointer;
+    margin-top:20px;
+    margin-right:20px;
+    img{
+        overflow:hidden;
+    }
+
+`;
 
 const Burger = ({ open, setOpen }) => {
     return (
@@ -65,29 +101,33 @@ const StyledMenu = styled.nav`
     right:-120vw;
     transition: transform 0.3s ease-in-out;
     width:100vw;
-  
-  
 `
 
-const Menu = ({ open }) => {
+const Menu = ({ open, t }) => {
     return (
-            <Ul open={open}>
-                {
-                    menu.map((val, key) => {
-                        return (
-                            <Link key={key} to={val.slug} >
-                                <Li>{val.name}</Li>
-                            </Link>
-                        )
-                    })
-                }
-                <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
-                    <Button to='/login'>ចូល</Button>
-                </motion.div>
-                <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
-                    <Button to='/signup'>ចុះឈ្មេាះ</Button>
-                </motion.div>
-            </Ul>
+        <Ul open={open}>
+            <Link to='/' >
+                <Li>{t('menu.home')}</Li>
+            </Link>
+            <Link to='/sport' >
+                <Li>{t('menu.sport')}</Li>
+            </Link>
+            <Link to='/casino' >
+                <Li>{t('menu.casino')}</Li>
+            </Link>
+            <Link to='/slot' >
+                <Li>{t('menu.slot')}</Li>
+            </Link>
+            <Link to='/loto' >
+                <Li>{t('menu.loto')}</Li>
+            </Link>
+            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
+                <Button to='/login'>{t('menu.login')}</Button>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
+                <Button to='/signup'>{t('menu.signup')}</Button>
+            </motion.div>
+        </Ul>
     )
 }
 const StyledBurger = styled.button`

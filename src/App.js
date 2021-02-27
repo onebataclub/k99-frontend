@@ -16,21 +16,38 @@ import Gamedtail from './router/GameDtail'
 import Footer from './Footer';
 import Contact from './components/Contact'
 
-export default function App() {
-  return (
-    <Router>
-      <div className="app" style={{ background: colors.black, position:'relative', overflow:'hidden' }}>
-        <MainHeader />
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/login" exact component={Login} />
-          <Route path="/signup" exact component={Signup} />
-          <Route path="/category" component={Category} />
-          <Route path=":slug" component={Gamedtail} />
-        </Switch>
-        <Footer /> 
-        <Contact/>
-      </div>
-    </Router>
-  )
+import {
+  setTranslations,
+  setLanguageCookie,
+  translate,
+} from 'react-switch-lang';
+
+import en from './lang/en.json'
+import km from './lang/km.json'
+
+setTranslations({ en, km });
+setLanguageCookie('lang');
+
+class App extends React.Component {
+  render() {
+    const { t } = this.props;
+    return (
+      <Router>
+        <div className="app" style={{ background: colors.black, position: 'relative', overflow: 'hidden' }}>
+          <MainHeader t={t} />
+          <Switch>
+            <Route path="/" exact component={() => <Home t={t} />} />
+            <Route path="/login" exact component={Login} />
+            <Route path="/signup" exact component={Signup} />
+            <Route path="/category" component={Category} />
+            <Route path=":slug" component={Gamedtail} />
+          </Switch>
+          <Footer />
+          <Contact />
+        </div>
+      </Router>
+    )
+  }
 }
+
+export default translate(App);

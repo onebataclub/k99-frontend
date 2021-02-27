@@ -31,22 +31,13 @@ const options = {
     }
 };
 
-const events = {
-    onDragged: function (event) {
-
-    },
-    onChanged: function (event) {
-
-    }
-};
-
-const Home = () => {
+const Home = ({t}) => {
     return (
         <Container>
             <Row>
                 <Slide />
             </Row>
-            <Label>កំសាន្តជាមួយហ្គេមថ្មី និង ប្រម៉ូសិនអស្ចារ្យ</Label>
+            <Label>{t('our_payment_preferred_method')}</Label>
             <Row>
                 {game.map((index, key) => {
                     return (
@@ -58,10 +49,10 @@ const Home = () => {
                     )
                 })}
             </Row>
-            <Label>វិធីសាស្ត្រទូទាត់ប្រាក់</Label>
+            <Label>{t('entertain_with_new_games_and_amazing_presses')}</Label>
             <Row>
                 <Container style={{maxWidth:"500px"}}>
-                    <OwlCarousel options={options} events={events} >
+                    <OwlCarousel options={options} >
                         {bank.map((index, key) => {
                             return (
                                 <div key={key}>

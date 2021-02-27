@@ -14,7 +14,7 @@ export default function Login() {
                     <Input type="password" placeholder="Password" />
                 </Col>
                 <Col>
-                    <Button>afd</Button>
+                    <Button>Login</Button>
                 </Col>
             </Row>
         </Container>
