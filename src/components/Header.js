@@ -52,27 +52,7 @@ export default function MainHeader({ t }) {
         </Header>
     )
 }
-const Phone = styled.div`
-    margin-top:15px;
-    display:flex;
-    color: ${colors.white};
-    p{
-        display:inline-block;
-        margin:0;
-        padding:0 10px;
-    }
-`;
-const Lang = styled.div`
-    border:5px;
-    color: ${colors.white};
-    cursor: pointer;
-    margin-top:20px;
-    margin-right:20px;
-    img{
-        overflow:hidden;
-    }
 
-`;
 
 const Burger = ({ open, setOpen }) => {
     return (
@@ -83,25 +63,6 @@ const Burger = ({ open, setOpen }) => {
         </StyledBurger>
     )
 }
-
-
-const StyledMenu = styled.nav`
-    display:block;
-    z-index:5;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: ${colors.black};
-    transform: ${({ open }) => open ? 'translateX(-95%)' : 'translateX(0)'};
-    height: 100vh;
-    text-align: left;
-    padding: 2rem;
-    position: absolute;
-    top: 0;
-    right:-120vw;
-    transition: transform 0.3s ease-in-out;
-    width:100vw;
-`
 
 const Menu = ({ open, t }) => {
     return (
@@ -130,6 +91,27 @@ const Menu = ({ open, t }) => {
         </Ul>
     )
 }
+const Phone = styled.div`
+    margin-top:15px;
+    display:flex;
+    color: ${colors.white};
+    p{
+        display:inline-block;
+        margin:0;
+        padding:0 10px;
+    }
+`;
+const Lang = styled.div`
+    border:5px;
+    color: ${colors.white};
+    cursor: pointer;
+    margin-top:20px;
+    margin-right:20px;
+    img{
+        overflow:hidden;
+    }
+
+`;
 const StyledBurger = styled.button`
     @media screen and (min-width: ${size.sm}){
         display:none;

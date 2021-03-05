@@ -12,8 +12,7 @@ export default function Footer() {
                         <Col md={4} >
                             <H1>ទាក់ទងមកពួកយើង</H1>
                             <p>
-                                077 000 000 (24/7 Support Line) <br/>
-                                031 000000 | 069 000 000
+                                081889599 (24/7 Support Line) <br/>
                             </p>
                         </Col>
                         <Col md={4} >

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import { colors } from './../theam'
+import { device } from './style/breakpoints';
 
 import { MdContactPhone } from 'react-icons/md';
 import { AiFillWechat } from 'react-icons/ai';
@@ -23,10 +24,10 @@ export default function Contact() {
             <ContactBody>
                 <h1>Customer Support</h1>
                 <ul>
-                    <li><a href="#"><AiFillWechat />Live Chat (Recommended) </a></li>
-                    <li><a href="#"><FaTelegramPlane/>Telegram</a></li>
-                    <li><a href="#"><FaFacebookF/>Facebook</a></li>
-                    <li><a href="#"><SiLine/>line</a></li>
+                    <li><a target="_blank" href="#"><AiFillWechat />Live Chat (Recommended) </a></li>
+                    <li><a target="_blank" href="https://t.me/k99win99"><FaTelegramPlane/>Telegram</a></li>
+                    <li><a target="_blank" href="#"><FaFacebookF/>Facebook</a></li>
+                    <li><a target="_blank" href="#"><SiLine/>081889599</a></li>
                 </ul>
             </ContactBody>
         </WrappContact>
@@ -87,4 +88,7 @@ const WrappContact = styled.div`
    &:hover{
        transform:translate(0%,-50%);
    }
+   @media ${device.sm}{
+       display:none;
+    }
 `

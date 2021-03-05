@@ -22,6 +22,7 @@ export const Input = styled.input`
   border: none;
   outline:none;
   border-radius: 3px;
+  width:100%;
   ::placeholder {
     color: 'palevioletred';
   }

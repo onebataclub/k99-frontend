@@ -12,14 +12,6 @@ import pipay from './images/bank/pipay.png'
 import truemoney from './images/bank/truemoney.png'
 import wing from './images/bank/wing.png'
 
-
-import {
-    setTranslations,
-    setDefaultLanguage,
-    setLanguageCookie,
-    setLanguage,
-    translate,
-  } from 'react-switch-lang';
 const bank = [
     {
         id:1,
