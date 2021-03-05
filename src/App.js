@@ -12,7 +12,6 @@ import Category from './router/Category'
 
 import Gamedtail from './router/GameDtail'
 // UI components
-
 import Footer from './Footer';
 import Contact from './components/Contact'
 

@@ -31,7 +31,7 @@ const options = {
     }
 };
 
-const Home = ({t}) => {
+const Home = ({ t }) => {
     return (
         <Container>
             <Row>
@@ -51,7 +51,7 @@ const Home = ({t}) => {
             </Row>
             <Label>{t('entertain_with_new_games_and_amazing_presses')}</Label>
             <Row>
-                <Container style={{maxWidth:"500px"}}>
+                <Container style={{ maxWidth: "500px" }}>
                     <OwlCarousel options={options} >
                         {bank.map((index, key) => {
                             return (
@@ -60,7 +60,6 @@ const Home = ({t}) => {
                                 </div>
                             )
                         })}
-
                     </OwlCarousel>
                 </Container>
             </Row>
