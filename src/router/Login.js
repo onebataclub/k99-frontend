@@ -7,26 +7,25 @@ export default function Login() {
     return (
         <Container>
             <LoginWrapper>
-                <Row>
-                    <Col>
+                    <div>
                         <Input type="text" placeholder="Username" />
-                    </Col>
-                    <Col>
                         <Input type="password" placeholder="Password" />
-                    </Col>
-                    <Col>
                         <Button>Login</Button>
-                    </Col>
-                </Row>
+                    </div>
             </LoginWrapper>
         </Container>
     )
 }
 
 const LoginWrapper = styled.div`
-    max-width : 500px;
+    /* max-width : 500px; */
     margin:0 auto;
     padding:20px;
     margin-top:20px;
+    >div{
+        overflow:hidden;
+        display:flex;
+        flex-direction:column;
+    }
 
 `

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { colors } from '../theam'
 import { motion } from "framer-motion";
 import { Container, Row, Col } from 'styled-bootstrap-grid'
-import { Link } from 'react-router-dom'
+import { Link, Switch } from 'react-router-dom'
 
 
 import logo from './../images/logo.png'
@@ -25,17 +25,19 @@ export default function MainHeader({ t }) {
     return (
         <Header>
             <Container>
-                <Row style={{ justifyContent: 'space-between' }}>
-                    <Phone><FiPhoneCall size={25} /> <p>{t('menu.phone')}</p></Phone>
-                    <div style={{ display: 'flex' }}>
-                        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
-                            <Lang onClick={handleSetLanguage('km')}><img src={km} /></Lang>
-                        </motion.div>
-                        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
-                            <Lang onClick={handleSetLanguage('en')}><img src={en} /></Lang>
-                        </motion.div>
-                    </div>
-                </Row>
+                <SwitchLang>
+                    <Row style={{ justifyContent: 'space-between' }}>
+                        <Phone><FiPhoneCall size={25} /> <p>{t('menu.phone')}</p></Phone>
+                        <div style={{ display: 'flex' }}>
+                            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
+                                <Lang onClick={handleSetLanguage('km')}><img src={km} /></Lang>
+                            </motion.div>
+                            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
+                                <Lang onClick={handleSetLanguage('en')}><img src={en} /></Lang>
+                            </motion.div>
+                        </div>
+                    </Row>
+                </SwitchLang>
                 <Row>
                     <Col xs={3} sm={3} md={2} lg={2}>
                         <Logo to='/' >
@@ -56,7 +58,7 @@ export default function MainHeader({ t }) {
 
 const Burger = ({ open, setOpen }) => {
     return (
-        <StyledBurger open={open} onClick={() => setOpen(!open)}>
+        <StyledBurger style={{ position: `${open ? 'fixed' : 'absolute'}` }} open={open} onClick={() => setOpen(!open)}>
             <div />
             <div />
             <div />
@@ -64,33 +66,53 @@ const Burger = ({ open, setOpen }) => {
     )
 }
 
-const Menu = ({ open, t }) => {
+const Menu = ({ open, t, setOpen }) => {
     return (
-        <Ul open={open}>
-            <Link to='/' >
-                <Li>{t('menu.home')}</Li>
-            </Link>
-            <Link to='/sport' >
-                <Li>{t('menu.sport')}</Li>
-            </Link>
-            <Link to='/casino' >
-                <Li>{t('menu.casino')}</Li>
-            </Link>
-            <Link to='/slot' >
-                <Li>{t('menu.slot')}</Li>
-            </Link>
-            <Link to='/loto' >
-                <Li>{t('menu.loto')}</Li>
-            </Link>
-            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
-                <Button to='/login'>{t('menu.login')}</Button>
-            </motion.div>
-            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
-                <Button to='/signup'>{t('menu.signup')}</Button>
-            </motion.div>
-        </Ul>
+        <>
+            <BgBlack onClick={() => setOpen(!open)} style={{ display: `${open ? 'block' : 'none'}` }} />
+            <Ul open={open} onClick={() => setOpen(!open)}>
+                <Link to='/' >
+                    <Li>{t('menu.home')}</Li>
+                </Link>
+                <Link to='/sport' >
+                    <Li>{t('menu.sport')}</Li>
+                </Link>
+                <Link to='/casino' >
+                    <Li>{t('menu.casino')}</Li>
+                </Link>
+                <Link to='/slot' >
+                    <Li>{t('menu.slot')}</Li>
+                </Link>
+                <Link to='/loto' >
+                    <Li>{t('menu.loto')}</Li>
+                </Link>
+                <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
+                    <Button to='/login'>{t('menu.login')}</Button>
+                </motion.div>
+                <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
+                    <Button to='/signup'>{t('menu.signup')}</Button>
+                </motion.div>
+            </Ul>
+        </>
     )
 }
+const SwitchLang = styled.div`
+   @media ${device.sm}{
+        display:none;
+   }
+`;
+const BgBlack = styled.div`
+    position:fixed;
+    background: #000;
+    opacity:0.5;
+    transform: translate(-50%,-50%);
+    top:50%;
+    left:50%;
+    width:100vw;
+    height:100vh;
+    z-index:5;
+`;
+
 const Phone = styled.div`
     margin-top:15px;
     display:flex;
@@ -117,7 +139,7 @@ const StyledBurger = styled.button`
         display:none;
     }
     position: absolute;
-    top: 15px;
+    top: 30px;
     right: 2rem;
     display: flex;
     flex-direction: column;
@@ -194,16 +216,22 @@ const Ul = styled.ul`
     display: flex;
     justify-content:flex-end;
     @media ${device.sm}{
-        right:-100vw;
+        justify-content:flex-start;
+        padding-left:10px;
+        padding-top:50px;
+        right:-53vw;
         z-index:5;
         transition: all 0.3s linear;
-        transform: ${({ open }) => open ? 'translateX(-160%)' : 'translateX(0)'};
-        position:absolute;
+        transform: ${({ open }) => open ? 'translateX(-100%)' : 'translateX(0)'};
+        position:fixed;
         flex-direction:column;
         background:${colors.black};
-        top:70px;
-        width:100%;
-        padding:0;
+        top:0;
+        height:100vh;
+        width:50vw;
+        a{
+           top:0;
+        }
     }
     
 `;
@@ -211,7 +239,7 @@ const Li = styled.li`
     list-style:none;
     font-size:15px;
     padding:10px 30px;
-    margin:10px 0;
+    margin:10px;
     border-radius:30px;
     color: ${colors.white};
     transition:0.3s;

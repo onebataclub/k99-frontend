@@ -24,7 +24,6 @@ export const Input = styled.input`
   font-size: 18px;
   padding: 10px;
   margin: 10px;
-  background: 'papayawhip';
   border: none;
   outline:none;
   border-radius: 3px;

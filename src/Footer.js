@@ -39,7 +39,7 @@ export default function Footer({ t }) {
                     </Row>
                 </Wrapper>
             </Container>
-            <Container fluid style={{ margin: 0 }}>
+            <Container fluid style={{ padding: 0 }}>
                 <Bottomcopy>&copy;{new Date().getFullYear()}. All rights reserved for those aged 18+</Bottomcopy>
 
             </Container>
