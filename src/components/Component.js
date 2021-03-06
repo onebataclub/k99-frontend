@@ -2,6 +2,12 @@ import styled from 'styled-components'
 import { colors } from './../theam'
 
 const boxshadow = '-1px 2px 46px -3px rgba(0,0,0,0.38)';
+
+export const Label = styled.h2`
+    color: ${colors.white};
+    text-align:center;
+`;
+
 export const Button = styled.div`
   font-size: 1em;
   border-radius: 30px;

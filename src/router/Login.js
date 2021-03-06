@@ -24,7 +24,7 @@ export default function Login() {
 }
 
 const LoginWrapper = styled.div`
-    width : 500px;
+    max-width : 500px;
     margin:0 auto;
     padding:20px;
     margin-top:20px;

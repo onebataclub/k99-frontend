@@ -41,7 +41,7 @@ class App extends React.Component {
             <Route path="/category" component={Category} />
             <Route path=":slug" component={Gamedtail} />
           </Switch>
-          <Footer />
+          <Footer t={t}/>
           <Contact />
         </div>
       </Router>

@@ -14,3 +14,35 @@ a {
   text-decoration: none;
   cursor: pointer;
 }
+.owl-nav{
+  display: none;
+}
+.owl-dots{
+  bottom: -30px;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+}
+
+.owl-dot{
+  width: 10px;
+  height: 10px;
+  background: #ffffff !important;
+  margin: 0 6px;
+  border-radius: 10px;
+  outline: none;
+  transition: .3s linear;
+}
+
+.owl-dot.active{
+  width: 20px;
+  background: linear-gradient(45deg, #d5a950, #fdfcaa) !important;
+}
+
+.owl-dot:hover{
+  width: 20px;
+  background: linear-gradient(45deg, #d5a950, #fdfcaa) !important;
+}

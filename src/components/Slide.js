@@ -12,9 +12,11 @@ const images = [
 ];
 const options = {
     items: 1,
-    // rewind: true,
-    // nav: true,
-    autoplay: true,
+    nav:true,
+    loop:true,
+    autoplay:true,
+    autoplayTimeout:5000,
+    autoplayHoverPause:true,
     margin: 0,
 };
 
@@ -47,6 +49,7 @@ const Wrapslide = styled.div`
     margin-top:20px;
     width:100%;
     height: 300px;
+    margin-bottom:20px;
     @media ${device.sm}{
         height: 150px;
     }
