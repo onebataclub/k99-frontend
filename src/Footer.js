@@ -5,7 +5,17 @@ import styled from 'styled-components';
 import { colors } from './theam'
 import { Label } from './components/Component'
 import { bank } from './data';
+import OwlCarousel from 'react-owl-carousel2';
 
+const options = {
+    items: 4,
+    nav: true,
+    loop: true,
+    autoplay: true,
+    autoplayTimeout: 5000,
+    autoplayHoverPause: true,
+    margin: 10,
+};
 
 export default function Footer({ t }) {
     return (
@@ -13,7 +23,23 @@ export default function Footer({ t }) {
             <Container>
                 <Label>{t('our_payment_preferred_method')}</Label>
                 <Payment>
-                    {bank.map((index, key) => <div key={key} style={{backgroundImage:`url(${index.img})`}}></div>)}
+                    <OwlCarousel options={options} >
+                        {
+                            bank.map((index, key) => {
+                                return (
+                                    <div className="wrap-bank" key={key} >
+                                        <div style={{ backgroundImage: `url(${index.img})` }}></div>
+                                        <span>
+                                            <p>{index.userName}</p>
+                                            <p>{index.accNum}</p>
+                                        </span>
+
+                                    </div>
+
+                                )
+                            })
+                        }
+                    </OwlCarousel>
                 </Payment>
                 <Wrapper>
                     <Row>
@@ -47,22 +73,36 @@ export default function Footer({ t }) {
     )
 }
 
+const BankWrap = styled.div`
+   background: ${colors.white}
+`;
 
 const Payment = styled.div`
-    max-width:700px;
     margin:0 auto;
     display:flex;
     flex-direction:row;
-    justify-content:space-evenly;
-    >div{
+    justify-content:space-between;
+    margin-bottom: 20px;
+    .wrap-bank{
         border-radius:5px;
         background: #fff;
-        width:70px;
-        height:70px;
-        margin:5px;
-        background-position:center;
-        background-size:cover;
-        border: 3px solid ${colors.primary};
+        display: flex;
+        >div{
+            border-radius:5px;
+            width:70px;
+            height:70px;
+            margin:5px;
+            background-position:center;
+            background-size:cover;
+            
+        }
+        span{
+            display: flex;
+            flex-direction:column;
+                p{
+                    margin: 5px 20px;
+                }
+            }
     
     }
 `;
@@ -83,4 +123,5 @@ color:${colors.white};
   background:${colors.black};
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+
 `;

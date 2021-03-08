@@ -12,11 +12,11 @@ const images = [
 ];
 const options = {
     items: 1,
-    nav:true,
-    loop:true,
-    autoplay:true,
-    autoplayTimeout:5000,
-    autoplayHoverPause:true,
+    nav: true,
+    loop: true,
+    autoplay: true,
+    autoplayTimeout: 5000,
+    autoplayHoverPause: true,
     margin: 0,
 };
 
@@ -44,13 +44,13 @@ const ImageSlide = styled.div`
         height: 150px;
     }
 `;
-
 const Wrapslide = styled.div`
     margin-top:20px;
     width:100%;
     height: 300px;
     margin-bottom:20px;
     @media ${device.sm}{
+        margin:0;
         height: 150px;
     }
 `;

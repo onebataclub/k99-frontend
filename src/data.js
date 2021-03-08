@@ -16,30 +16,40 @@ const bank = [
     {
         id:1,
         name:'aba',
+        userName:'Sony',
+        accNum:'002 167 931',
         img: { aba }.aba,
 
     },
     {
         id:1,
         name:'ac',
+        userName:'So ny',
+        accNum:'06000385066416',
         img: { ac }.ac,
 
     },
     {
         id:1,
         name:'pipay',
+        userName:'Sony',
+        accNum:'0976279229',
         img: { pipay }.pipay,
 
     },
     {
         id:1,
         name:'truemoney',
+        userName:'Chhum narin',
+        accNum:'0976279229',
         img: { truemoney }.truemoney,
 
     },
     {
         id:1,
         name:'wing',
+        userName:'Chhum narin',
+        accNum:'03768291',
         img: { wing }.wing,
 
     }

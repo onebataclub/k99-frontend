@@ -66,10 +66,25 @@ const Burger = ({ open, setOpen }) => {
     )
 }
 
+
+
 const Menu = ({ open, t, setOpen }) => {
+
+    const checkWidth = (w) => {
+        if (window.innerWidth > w) {
+            return false
+        }
+        return true
+    }
+
+    const handleSetLanguage = (key) => () => {
+        setLanguage(key);
+    };
     return (
         <>
-            <BgBlack onClick={() => setOpen(!open)} style={{ display: `${open ? 'block' : 'none'}` }} />
+            {
+                checkWidth(768) ? <BgBlack onClick={() => setOpen(!open)} style={{ display: `${open ? 'block' : 'none'}` }} /> : ''
+            }
             <Ul open={open} onClick={() => setOpen(!open)}>
                 <Link to='/' >
                     <Li>{t('menu.home')}</Li>
@@ -92,6 +107,16 @@ const Menu = ({ open, t, setOpen }) => {
                 <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
                     <Button to='/signup'>{t('menu.signup')}</Button>
                 </motion.div>
+                {
+                    checkWidth(768) ? <div style={{ display: 'flex',padding:'15px' }}>
+                        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
+                            <Lang onClick={handleSetLanguage('km')}><img src={km} /></Lang>
+                        </motion.div>
+                        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
+                            <Lang onClick={handleSetLanguage('en')}><img src={en} /></Lang>
+                        </motion.div>
+                    </div> : ''
+                }
             </Ul>
         </>
     )
