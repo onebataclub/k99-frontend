@@ -164,8 +164,8 @@ const StyledBurger = styled.button`
         display:none;
     }
     position: absolute;
-    top: 30px;
-    right: 2rem;
+    top: 20px;
+    right: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -228,7 +228,7 @@ padding:0;
 height:100px;
 @media ${device.sm}{
         height:70px;
-        margin: 10px 0;
+        margin: 0;
     }
     img{
         height:100%;
