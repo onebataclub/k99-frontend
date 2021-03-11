@@ -10,5 +10,57 @@
     "phone": "081 88 95 99 (24/7 Support Line)"
   },
   "our_payment_preferred_method": "Our payment preferred method",
-  "entertain_with_new_games_and_amazing_presses": "Entertain with new games and amazing presses"
+  "entertain_with_new_games_and_amazing_presses": "Entertain with new games and amazing presses",
+  "rule":{
+    "information":{
+      "title":"information",
+      "body":{
+        "registation":"registation",
+        "registation_content":"Open an K99PLAY account to enjoy all our online betting promotions and gaming entertainment of premium quality at exceptionally good value. We believe in rewarding our valued customers with different type of deposit bonuses and promotions.",
+        "affiliates":"affiliates",
+        "affiliates_content":"Become our partner and earn high commission levels every month by driving players to K99PLAY.",
+        "responsible_gaming":"responsible gaming",
+        "responsible_gaming_content":"K99PLAY strives to provide a channel of entertainment to our customer in a positive way. We have in place major safeguards to promote and ensure responsible gambling.",
+        "security":"security",
+        "security_content":"A Solid and Secure Betting System. The privacy of your into is important to us and we adhere to strict confidentiality and privacy policies."
+      }
+    },
+    "product":{
+      "title":"PRODUCTS",
+      "body":{
+        "sports_betting":"Sports Betting",
+        "sports_betting_content":"We offer all the major sports such as English Premier League, Spanish La Liga, Italian Serie A, UEFA Champions League, French Ligue 1, German Bundesliga 1, NFL, NBA, NCAA, Women Basketball, Tennis, Formula 1 and many more. We offer up to 4,000 Live Betting soccer matches a month for your wagering pleasure.",
+        "online_casino":"Online Casino",
+        "online_casino_content":"Play casino games online. Choose from Roulette, Blackjack, Video Poker, Slots, Progressives and others plus get your chance to win more Casino Jackpots on K99PLAY.",
+        "live_casino":"Live Casino",
+        "live_casino_content":"We have extensive range of offers. These include Live Dealer Casino with Live Lobby view, beautiful Asian dealers, Live Baccarat, Live Sic Bo, Live Dragon Tiger and Live Roulette, Online Casino Slots and easy to play Keno games."
+      }
+    },
+    "infor_center":{
+      "title":"INFO CENTRE",
+      "body":{
+        "promotions":"Promotions",
+        "promotions_content":"Deposit Bonus and Welcome Bonus offer for all new members. Reload Bonus and Cash Rebates for existing customers as well",
+        "help_centre":"Help Centre",
+        "help_centre_content":"Check out our FAQ page for sports betting and gaming help. It contains help on account opening, deposit, withdrawal and technical help.",
+        "payment_methods":"Payment Methods",
+        "payment_methods_content":"We provide great choice for customers to deposit and withdraw when you win via NETELLER, Moneybookers, International Bank Transfer, Western Union and many more. We have it all, great games start with K99PLAY.",
+        "contact_us":"Contact Us",
+        "contact_us_content":"If you need any help or have any questions about Live betting or our casino games, we are available 24/7 via Live Chat, Telephone and E-mail."
+      }
+    },
+    "betting_info":{
+      "title":"BETTING INFO",
+      "body":{
+        "sports_results":"Promotions",
+        "sports_results_content":"Get all of the results from sports and matches we offer.",
+        "betting_statistics":"Betting Statistics",
+        "betting_statistics_content":"Over 200 tournaments across all major sports showing league tables, fixtures, form, team and player statistics, injury and suspension lists.",
+        "sports_betting":"Sports Betting",
+        "sports_betting_content":"Rules Our sports rules section details the rules and regulations under which bets are accepted and provides information on sports betting rules.",
+        "casino_betting":"Casino Betting",
+        "casino_betting_content":"Our Live Casino provides into such as Limit, Live Pool, Result History and Replay Hand History. All necessary into is displayed on screen for your betting convenience. You can choose hide or show different into at anytime."
+      }
+    }
+  }
 }

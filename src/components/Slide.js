@@ -2,13 +2,11 @@ import React from 'react'
 import styled from 'styled-components';
 import OwlCarousel from 'react-owl-carousel2';
 import { device } from './style/breakpoints';
-import slide1 from '././../images/slide/slide1.jpg'
-import slide3 from '././../images/slide/slide3.jpg'
-import slide5 from '././../images/slide/slide5.jpg'
+import slide1 from '././../images/slide/slide1.png'
+import slide2 from '././../images/slide/slide2.png'
 const images = [
     { imageUrl: slide1 },
-    { imageUrl: slide3 },
-    { imageUrl: slide5 }
+    { imageUrl: slide2 },
 ];
 const options = {
     items: 1,

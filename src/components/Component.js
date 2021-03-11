@@ -4,7 +4,9 @@ import { colors } from './../theam'
 const boxshadow = '-1px 2px 46px -3px rgba(0,0,0,0.38)';
 
 export const Label = styled.h2`
-    color: ${colors.white};
+    background: ${colors.gradient};
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
     text-align:center;
 `;
 
