@@ -92,6 +92,7 @@ const Menu = ({ open, t, setOpen }) => {
     const handleSetLanguage = (key) => () => {
         setLanguage(key);
     };
+    const dispatch = useDispatch();
     return (
         <>
             {
@@ -114,14 +115,24 @@ const Menu = ({ open, t, setOpen }) => {
                     <Li>{t('menu.loto')}</Li>
                 </Link>
                 {
-                    checkWidth(768) ? <div style={{ display: 'flex', padding: '15px' }}>
-                        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
-                            <Lang onClick={handleSetLanguage('km')}><img src={km} /></Lang>
-                        </motion.div>
-                        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
-                            <Lang onClick={handleSetLanguage('en')}><img src={en} /></Lang>
-                        </motion.div>
-                    </div> : null
+                    checkWidth(768) ?
+                        <div className="desktop-hidden">
+                            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
+                                <Button onClick={() => dispatch(login())} >{t('menu.login')}</Button>
+                            </motion.div>
+                            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
+                                <Button onClick={() => dispatch(signup())} >{t('menu.signup')}</Button>
+                            </motion.div>
+                            <div style={{ display: 'flex', padding: '15px' }}>
+                                <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
+                                    <Lang onClick={handleSetLanguage('km')}><img src={km} /></Lang>
+                                </motion.div>
+                                <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
+                                    <Lang onClick={handleSetLanguage('en')}><img src={en} /></Lang>
+                                </motion.div>
+                            </div>
+                        </div>
+                        : null
                 }
             </Ul>
         </>
@@ -221,6 +232,7 @@ export const Button = styled.div`
   padding:5px 20px;
   display:block;
   cursor: pointer;
+  text-align:center;
   color: ${colors.black};
   background:${colors.gradient};
   transition:.3s;
@@ -249,6 +261,12 @@ const Ul = styled.ul`
     padding:15px 0;
     display: flex;
     justify-content:flex-end;
+    @media screen and (min-width: ${size.sm}){
+        .desktop-hidden{
+        display:none;
+    }
+    }
+    
     @media ${device.sm}{
         justify-content:flex-start;
         padding-left:10px;

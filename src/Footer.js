@@ -229,7 +229,7 @@ export default function Footer({ t }) {
 }
 
 const Accordion = styled.div`
-     color: ${colors.white}
+     color: ${colors.white};
 `;
 
 const Cwrapp = styled.span`
@@ -241,7 +241,6 @@ const Phone = styled.div`
   width: auto;
   margin: 10px 0;
   border-radius: 5px;
-  /* background:${colors.white}; */
   padding: 5px;
   display: flex;
   flex-direction: row;
