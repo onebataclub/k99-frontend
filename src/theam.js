@@ -4,6 +4,7 @@ const colors = {
     black: '#1a1d25',
     white: '#ecf0f1',
     gray:'#3b3d4e',
+    gray2:'#a2a2a2',
     gradient: 'linear-gradient(45deg, #d5a950, #fdfcaa);'
 };
 export { colors };

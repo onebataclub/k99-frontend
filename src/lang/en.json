@@ -7,7 +7,11 @@
     "loto": "Loto",
     "login": "Login",
     "signup": "Sign Up",
-    "phone": "081 88 95 99 (24/7 Support Line)"
+    "phone": "081 88 95 99 (24/7 Support Line)",
+    "username":"Username",
+    "password":"Password",
+    "phone_number":"Phone number",
+    "affiliate":"Affiliate"
   },
   "our_payment_preferred_method": "Our payment preferred method",
   "entertain_with_new_games_and_amazing_presses": "Entertain with new games and amazing presses",

@@ -4,18 +4,21 @@ import { colors } from '../theam'
 import { motion } from "framer-motion";
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 import { Link, Switch } from 'react-router-dom'
-
-
 import logo from './../images/logo.png'
 import en from './../images/en.svg'
 import km from './../images/km.svg'
-
 import { device, size } from './style/breakpoints';
-
 import { setLanguage } from 'react-switch-lang';
 import { FiPhoneCall } from 'react-icons/fi'
-export default function MainHeader({ t }) {
 
+import { Input } from './Component'
+import { useSelector, useDispatch } from 'react-redux'
+import { login, signup } from '../actions';
+
+import ModalCom from './Modal'
+
+export default function MainHeader({ t }) {
+    const dispatch = useDispatch();
     const [open, setOpen] = React.useState(false);
     const node = React.useRef();
 
@@ -24,11 +27,20 @@ export default function MainHeader({ t }) {
     };
     return (
         <Header>
+            <ModalCom t={t} />
             <Container>
                 <SwitchLang>
-                    <Row style={{ justifyContent: 'space-between' }}>
+                    <Row style={{ justifyContent: 'space-between', marginTop: '20px' }}>
                         <Phone><FiPhoneCall size={25} /> <p>{t('menu.phone')}</p></Phone>
                         <div style={{ display: 'flex' }}>
+                            <Input type="text" placeholder={t('menu.username')} />
+                            <Input type="password" placeholder={t('menu.password')} />
+                            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
+                                <Button onClick={() => dispatch(login())} >{t('menu.login')}</Button>
+                            </motion.div>
+                            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
+                                <Button onClick={() => dispatch(signup())} style={{ marginRight: '30px' }}>{t('menu.signup')}</Button>
+                            </motion.div>
                             <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
                                 <Lang onClick={handleSetLanguage('km')}><img src={km} /></Lang>
                             </motion.div>
@@ -36,6 +48,7 @@ export default function MainHeader({ t }) {
                                 <Lang onClick={handleSetLanguage('en')}><img src={en} /></Lang>
                             </motion.div>
                         </div>
+
                     </Row>
                 </SwitchLang>
                 <Row>
@@ -69,7 +82,6 @@ const Burger = ({ open, setOpen }) => {
 
 
 const Menu = ({ open, t, setOpen }) => {
-
     const checkWidth = (w) => {
         if (window.innerWidth > w) {
             return false
@@ -101,26 +113,23 @@ const Menu = ({ open, t, setOpen }) => {
                 <Link to='/loto' >
                     <Li>{t('menu.loto')}</Li>
                 </Link>
-                <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
-                    <Button to='/login'>{t('menu.login')}</Button>
-                </motion.div>
-                <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
-                    <Button to='/signup'>{t('menu.signup')}</Button>
-                </motion.div>
                 {
-                    checkWidth(768) ? <div style={{ display: 'flex',padding:'15px' }}>
+                    checkWidth(768) ? <div style={{ display: 'flex', padding: '15px' }}>
                         <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
                             <Lang onClick={handleSetLanguage('km')}><img src={km} /></Lang>
                         </motion.div>
                         <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
                             <Lang onClick={handleSetLanguage('en')}><img src={en} /></Lang>
                         </motion.div>
-                    </div> : ''
+                    </div> : null
                 }
             </Ul>
         </>
     )
 }
+
+// Styled Compenent
+
 const SwitchLang = styled.div`
    @media ${device.sm}{
         display:none;
@@ -205,11 +214,11 @@ const StyledBurger = styled.button`
     }
 `
 
-export const Button = styled(Link)`
+export const Button = styled.div`
   font-size: 1em;
   border-radius: 30px;
   margin: 10px;
-  padding:10px 30px;
+  padding:5px 20px;
   display:block;
   cursor: pointer;
   color: ${colors.black};

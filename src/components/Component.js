@@ -11,6 +11,7 @@ export const Label = styled.h2`
 `;
 
 export const Button = styled.div`
+  text-align:center;
   font-size: 1em;
   border-radius: 30px;
   margin: 10px;
@@ -29,9 +30,12 @@ export const Input = styled.input`
   border: none;
   outline:none;
   border-radius: 3px;
-  width:100%;
+  max-width:150px;
+  background: ${colors.gray};
+  color: ${colors.white};
   ::placeholder {
-    color: 'palevioletred';
+    color: ${colors.gray2};
+    font-family: "Kantumruy", sans-serif;
   }
 `;
 

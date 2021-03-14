@@ -7,6 +7,8 @@ import { game, bank } from '../data';
 import GameCard from './../components/GameCard'
 
 const Home = ({ t }) => {
+ 
+
     return (
         <Container>
             <Row>
@@ -24,7 +26,7 @@ const Home = ({ t }) => {
                     )
                 })}
             </Row>
-            
+
         </Container >
 
     )

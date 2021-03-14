@@ -1,11 +1,10 @@
-import counterReducer from './counter'
-import loggedReucer from './isLogged'
+import { login, signup } from './isLogged'
 
-import {combineReducers} from 'redux'
+import { combineReducers } from 'redux'
 
-const allReducers =  combineReducers({
-    counter: counterReducer,
-    isLogged: loggedReucer
+const allReducers = combineReducers({
+    signup,
+    login
 })
 
 export default allReducers;

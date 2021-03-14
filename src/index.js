@@ -5,7 +5,6 @@ import App from './App';
 import { GridThemeProvider } from 'styled-bootstrap-grid';
 import { ThemeProvider } from 'styled-components';
 import "./assets/css/owl.carousel.css";
-
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import allReducers from './reducers'
