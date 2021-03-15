@@ -16,11 +16,22 @@ const store = createStore(
 
 
 const gridTheme = {
-  // row: {
-  //   padding: 10, // default 15
-  // },
-  col: {
+  container: {
     padding: 10,
+    maxWidth: {
+      xxl: 1200,
+      xl: 1200,
+      lg: 960,
+      md: 720,
+      sm: 540,
+      xs: 540,
+    },
+  },
+  row:{
+    padding: 5,
+  },
+  col: {
+    padding: 5,
   },
 };
 const styledTheme = {

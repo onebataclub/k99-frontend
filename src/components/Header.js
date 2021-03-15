@@ -103,16 +103,22 @@ const Menu = ({ open, t, setOpen }) => {
                     <Li>{t('menu.home')}</Li>
                 </Link>
                 <Link to='/sport' >
-                    <Li>{t('menu.sport')}</Li>
+                    <Li>{t('menu.k99casino')}</Li>
                 </Link>
                 <Link to='/casino' >
-                    <Li>{t('menu.casino')}</Li>
+                    <Li>{t('menu.lotto')}</Li>
                 </Link>
                 <Link to='/slot' >
-                    <Li>{t('menu.slot')}</Li>
+                    <Li>{t('menu.keno')}</Li>
                 </Link>
                 <Link to='/loto' >
-                    <Li>{t('menu.loto')}</Li>
+                    <Li>{t('menu.ae_casino')}</Li>
+                </Link>
+                <Link to='/loto' >
+                    <Li>{t('menu.joker')}</Li>
+                </Link>
+                <Link to='/loto' >
+                    <Li>{t('menu.promotion')}</Li>
                 </Link>
                 {
                     checkWidth(768) ?
@@ -291,7 +297,7 @@ const Li = styled.li`
     list-style:none;
     font-size:15px;
     padding:10px 30px;
-    margin:10px;
+    margin:10px 0;
     border-radius:30px;
     color: ${colors.white};
     transition:0.3s;
