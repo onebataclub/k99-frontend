@@ -288,7 +288,7 @@ const Payment = styled.div`
   }
 `;
 const Bottomcopy = styled.div`
-  background-color: ${colors.primary};
+  background: ${colors.gradient};
   text-align: center;
   padding: 10px;
 `;

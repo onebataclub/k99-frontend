@@ -12,10 +12,11 @@ import { setLanguage } from 'react-switch-lang';
 import { FiPhoneCall } from 'react-icons/fi'
 
 import { Input } from './Component'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { login, signup } from '../actions';
 
 import ModalCom from './Modal'
+import ModalLogin from './ModalLogin'
 
 export default function MainHeader({ t }) {
     const dispatch = useDispatch();
@@ -28,6 +29,7 @@ export default function MainHeader({ t }) {
     return (
         <Header>
             <ModalCom t={t} />
+            <ModalLogin t={t} />
             <Container>
                 <SwitchLang>
                     <Row style={{ justifyContent: 'space-between', marginTop: '20px' }}>
