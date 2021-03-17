@@ -104,22 +104,25 @@ const Menu = ({ open, t, setOpen }) => {
                 <Link to='/' >
                     <Li>{t('menu.home')}</Li>
                 </Link>
-                <Link to='/sport' >
+                <Link to='/k99casino' >
                     <Li>{t('menu.k99casino')}</Li>
                 </Link>
-                <Link to='/casino' >
+                <Link to='/sport' >
+                    <Li>{t('menu.sport')}</Li>
+                </Link>
+                <Link to='/lotto' >
                     <Li>{t('menu.lotto')}</Li>
                 </Link>
-                <Link to='/slot' >
+                <Link to='/keno' >
                     <Li>{t('menu.keno')}</Li>
                 </Link>
-                <Link to='/loto' >
+                <Link to='/ae_casino' >
                     <Li>{t('menu.ae_casino')}</Li>
                 </Link>
-                <Link to='/loto' >
+                <Link to='/joker' >
                     <Li>{t('menu.joker')}</Li>
                 </Link>
-                <Link to='/loto' >
+                <Link to='/promotion' >
                     <Li>{t('menu.promotion')}</Li>
                 </Link>
                 {

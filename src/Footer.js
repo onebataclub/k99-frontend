@@ -53,8 +53,6 @@ export default function Footer({ t }) {
     <>
       <Container>
         <Label>{t("our_payment_preferred_method")}</Label>
-
-
         <Payment>
           <OwlCarousel options={options}>
             {bank.map((index, key) => {
@@ -213,15 +211,14 @@ export default function Footer({ t }) {
             </Col>
             <Col md={4}>
               <H1>ចូលទៅកាន់ ហ្វេសបុកផេកពួកយើង</H1>
-              <a target="_blank" href="#"><FaFacebookF />Facebook</a>
+              <a target="_blank" href="https://www.facebook.com/k99win99"><FaFacebookF />Facebook</a>
             </Col>
           </Row>
         </Wrapper>
       </Container>
       <Container fluid style={{ padding: 0 }}>
         <Bottomcopy>
-          &copy;{new Date().getFullYear()}. All rights reserved for those aged
-          18+
+          &copy;{new Date().getFullYear()}. All rights reserved for those aged 18+
         </Bottomcopy>
       </Container>
     </>
